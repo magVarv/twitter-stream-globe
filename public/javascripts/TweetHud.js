@@ -68,7 +68,7 @@ app.controller('TweetHud', function($scope, $resource, $timeout, $rootScope, $ti
   	measureSentiment();
   }
 
-  $scope.avgSentiment = (0).toFixed(2);
+  $scope.avgSentiment = (0).toFixed(4);
   var sentimentScoreTotal = 0;
 
   /**
@@ -81,7 +81,7 @@ app.controller('TweetHud', function($scope, $resource, $timeout, $rootScope, $ti
       sentimentScoreTotal = sentimentScoreTotal + tweet.sentiment.score;
     });
 
-    $scope.avgSentiment = (Math.round((sentimentScoreTotal / TWEET_SAMPLE_SIZE) * 100) / 100).toFixed(2);
+    $scope.avgSentiment = (Math.round((sentimentScoreTotal / TWEET_SAMPLE_SIZE) * 100) / 100).toFixed(4);
     $scope.sentimentState = getSentimentState($scope.avgSentiment);
   }
 
