@@ -18,13 +18,13 @@ TweetBeacon = function(tweet) {
   this.color = 0xFFFFFF;
 
    if (tweet.sentiment.score <= 0 && tweet.sentiment.score <= -2 ) {
-  this.color = 0xdddf10;
+  this.color = 0x0b3ec9;
   }
   if (tweet.sentiment.score <= -3 && tweet.sentiment.score <= -5 ) {
-  this.color = 0xFF0000;
+  this.color = 0x0b3ec9;
   }
   else if (tweet.sentiment.score > 0 && tweet.sentiment.score < 3) {
-    this.color = 0x39b62d;
+    this.color = 0x0b3ec9;
   }
   else if (tweet.sentiment.score >= 3 && tweet.sentiment.score <= 5) {
     this.color = 0x0b3ec9;
