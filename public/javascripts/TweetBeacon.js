@@ -23,10 +23,10 @@ TweetBeacon = function(tweet) {
    else if (tweet.sentiment.score <=0 && tweet.sentiment.score <= -1) {
     this.color = 0xCC146E;
   }
-   else if (tweet.sentiment.score > 0 && tweet.sentiment.score >= 2) {
+   else if (tweet.sentiment.score > 0 && tweet.sentiment.score >= 1) {
     this.color = 0x008599;
   }
-  else if (tweet.sentiment.score >= 3 && tweet.sentiment.score >= 5) {
+  else if (tweet.sentiment.score >= 2 && tweet.sentiment.score >= 5) {
     this.color = 0x00FF92;
   }
 
