@@ -99,7 +99,7 @@ app.controller('TweetHud', function($scope, $resource, $timeout, $rootScope, $ti
 	  	  if (score >0.25 && score <= 1){
 		  state='positive2';
 	  }
-	  
+	  return state;
   }
 
   /**
