@@ -68,7 +68,7 @@ app.controller('TweetHud', function($scope, $resource, $timeout, $rootScope, $ti
   	measureSentiment();
   }
 
-  $scope.avgSentiment = (0).toFixed(4);
+  $scope.avgSentiment = (0).toFixed(2);
   var sentimentScoreTotal = 0;
 
   /**
@@ -81,7 +81,7 @@ app.controller('TweetHud', function($scope, $resource, $timeout, $rootScope, $ti
       sentimentScoreTotal = sentimentScoreTotal + tweet.sentiment.score;
     });
 
-    $scope.avgSentiment = (Math.round((sentimentScoreTotal / TWEET_SAMPLE_SIZE) * 100) / 100).toFixed(4);
+    $scope.avgSentiment = (Math.round((sentimentScoreTotal / TWEET_SAMPLE_SIZE) * 100) / 100).toFixed(2);
     $scope.sentimentState = getSentimentState($scope.avgSentiment);
   }
 
@@ -95,13 +95,13 @@ app.controller('TweetHud', function($scope, $resource, $timeout, $rootScope, $ti
   	if (score <= 0 &&  score>=-1) {
   		state = 'negative2';
   	}
-	else if (score <= -2 && score >= -5) {
+	else if (score < -1 && score >= -5) {
   		state = 'negative1';
   	}
 	else if (score > 0 && score <= 1) {
   		state = 'positive1';
   	}
-  	else if (score >= 2 && score <= 5) {
+  	else if (score > 1 && score <= 5) {
   		state = 'positive2';
   	}
 
