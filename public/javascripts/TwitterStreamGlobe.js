@@ -125,7 +125,7 @@
 		};
 		
 		var position = latLonToVector3(latlong.lat, latlong.lon);
-		if( 30<=latlong.lat<=50 && 0<=latlong.lon<=30 ){
+		if( 30<=latlong.lat && latlong.lat<=50 && 0<=latlong.lon && latlong.lon<=30 ){
 			addBeacon(position, tweet);
 			}
 		
