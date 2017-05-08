@@ -125,9 +125,11 @@
 		};
 		
 		var position = latLonToVector3(latlong.lat, latlong.lon);
-
-		addBeacon(position, tweet);
+		if(false){
+		addBeacon(position, tweet);}
+		
 	}
+	
 
 	/**
 	 *	Adds a beacon (line) to the surface of the Earth
