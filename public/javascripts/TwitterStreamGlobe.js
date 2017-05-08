@@ -163,7 +163,7 @@
 	 */ 
 	function render () {
 
-		earthMesh.rotation.y = earthMesh.rotation.y + 10;
+		earthMesh.rotation.y = earthMesh.rotation.y + 10000000;
 		
 	  renderer.autoClear = false;
 	  renderer.clear();
