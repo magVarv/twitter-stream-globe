@@ -52,16 +52,13 @@
 	 *	Creates the Earth sphere
 	 */
 	function addEarth () {
-		import { Geometry } from '../core/Geometry';
-		import { BufferGeometry } from '../core/BufferGeometry';
-		import { Float32BufferAttribute } from '../core/BufferAttribute';
 
-		var sphereGeometry = new THREE.PlaneGeometry(50, 50);
+	  var sphereGeometry = new THREE.SphereGeometry(600, 50, 50);
 
-		var shader = Shaders.earth;
-		var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+	  var shader = Shaders.earth;
+	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-		uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/world.jpg');
+	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/world.jpg');
 
 	  var material = new THREE.ShaderMaterial({
 	    uniforms: uniforms,
@@ -69,7 +66,7 @@
 	    fragmentShader: shader.fragmentShader
 	  });
 
-	  earthMesh = new THREE.Mesh(material);
+	  earthMesh = new THREE.Mesh(sphereGeometry, material);
 	  scene.add(earthMesh);
 
 	  // add an empty container for the beacons to be added to
@@ -157,7 +154,7 @@
 	/**
 	 * Render loop
 	 */
-	function animate () {
+	/*function animate () {
 	  requestAnimationFrame(animate);
     if (stats) stats.begin();
     render();
