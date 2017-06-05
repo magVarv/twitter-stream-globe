@@ -53,7 +53,7 @@
 	 */
 	function addEarth () {
 
-	  var sphereGeometry = new THREE.SphereGeometry();
+	  var sphereGeometry = new THREE.SphereGeometry(600,600,600);
 
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -70,7 +70,7 @@
 	  scene.add(earthMesh);
 
 	  // add an empty container for the beacons to be added to
-	  beaconHolder = new THREE.Object2D();
+	  beaconHolder = new THREE.Object3D();
 	  earthMesh.add(beaconHolder);
 	}
 
