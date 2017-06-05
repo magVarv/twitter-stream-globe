@@ -58,7 +58,7 @@
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/world.jpg');
+	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/lala.jpg');
 
 	  var material = new THREE.ShaderMaterial({
 	    uniforms: uniforms,
@@ -167,8 +167,7 @@
 	function render () {
 
 		earthMesh.rotation.y =  0;
-		earthMesh.rotation.x =  0;
-		earthMesh.rotation.z =  0;
+		
 	  renderer.autoClear = false;
 	  renderer.clear();
 	  renderer.render( scene, camera );
