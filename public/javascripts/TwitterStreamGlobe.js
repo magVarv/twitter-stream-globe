@@ -53,7 +53,7 @@
 	 */
 	function addEarth () {
 
-	  var sphereGeometry = new THREE.SphereGeometry(0,50,50);
+	  var sphereGeometry = new THREE.SphereGeometry(600,50,0);
 
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -102,13 +102,13 @@
 	  lon = lon + 10;
 	  lat = lat - 2;
 
-	  var phi = PI_HALF - lat * Math.PI / 360 - Math.PI * 0.01;
-	  var theta = 2 * Math.PI - lon * Math.PI / 360 + Math.PI * 0.06;
-	  var rad = 600 + height;
+	  //var phi = PI_HALF - lat * Math.PI / 180 - Math.PI * 0.01;
+	  //var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
+	 // var rad = 600 + height;
 
-	  vector3.x = Math.sin(phi) * Math.cos(theta) * rad;
-	  vector3.y = Math.cos(phi) * rad;
-	  vector3.z = 0;
+	  vector3.x = (Vector3.x+1)/2*lon ;
+	  vector3.y = -(Vector3.y+1)/2*lat;
+	  
 
 	  return vector3;
 	};
