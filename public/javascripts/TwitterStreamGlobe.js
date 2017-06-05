@@ -164,14 +164,14 @@
 	/**
 	 * Runs on each animation frame
 	 */ 
-	/*function render () {
+	function render () {
 
 		earthMesh.rotation.y = earthMesh.rotation.y + 0.001;
 		
 	  renderer.autoClear = false;
 	  renderer.clear();
 	  renderer.render( scene, camera );
-	}*\
+	}
 
 	/**
 	 * Updates camera and rendered when browser resized
