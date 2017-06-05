@@ -41,7 +41,7 @@
 
 		addEarth();
 		addStats();
-		//animate();
+		animate();
 
 		window.addEventListener ('resize', onWindowResize);
 	}
@@ -154,12 +154,12 @@
 	/**
 	 * Render loop
 	 */
-	//function animate () {
-	 // requestAnimationFrame(animate);
-    //if (stats) stats.begin();
-   // render();
-    //if (stats) stats.end();
-	//}
+	function animate () {
+	  requestAnimationFrame(animate);
+    if (stats) stats.begin();
+    render();
+    if (stats) stats.end();
+	}
 
 	/**
 	 * Runs on each animation frame
