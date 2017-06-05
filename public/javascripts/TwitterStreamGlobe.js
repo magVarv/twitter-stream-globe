@@ -41,7 +41,7 @@
 
 		addEarth();
 		addStats();
-		animate();
+		//animate();
 
 		window.addEventListener ('resize', onWindowResize);
 	}
@@ -154,24 +154,24 @@
 	/**
 	 * Render loop
 	 */
-	/*function animate () {
-	  requestAnimationFrame(animate);
-    if (stats) stats.begin();
-    render();
+	//function animate () {
+	 // requestAnimationFrame(animate);
+    //if (stats) stats.begin();
+   // render();
     if (stats) stats.end();
-	}
+	//}
 
 	/**
 	 * Runs on each animation frame
 	 */ 
-	function render () {
+	/*function render () {
 
 		earthMesh.rotation.y = earthMesh.rotation.y + 0.001;
 		
 	  renderer.autoClear = false;
 	  renderer.clear();
 	  renderer.render( scene, camera );
-	}
+	}*\
 
 	/**
 	 * Updates camera and rendered when browser resized
