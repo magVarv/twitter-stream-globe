@@ -157,7 +157,7 @@
 	function animate () {
 	  requestAnimationFrame(animate);
     if (stats) stats.begin();
-    //render();
+		render();
     if (stats) stats.end();
 	}
 
@@ -166,7 +166,7 @@
 	 */ 
 	function render () {
 
-		earthMesh.rotation.y =  0;
+		//earthMesh.rotation.y =  0;
 		
 	  renderer.autoClear = false;
 	  renderer.clear();
