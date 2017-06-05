@@ -53,7 +53,7 @@
 	 */
 	function addEarth () {
 
-	  var sphereGeometry = new THREE.SphereGeometry(600,50,0);
+	  //var sphereGeometry = new THREE.SphereGeometry(600, 50, 50);
 
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
@@ -66,7 +66,7 @@
 	    fragmentShader: shader.fragmentShader
 	  });
 
-	  earthMesh = new THREE.Mesh(sphereGeometry, material);
+	  earthMesh = new THREE.Mesh(material);
 	  scene.add(earthMesh);
 
 	  // add an empty container for the beacons to be added to
@@ -102,13 +102,13 @@
 	  lon = lon + 10;
 	  lat = lat - 2;
 
-	  //var phi = PI_HALF - lat * Math.PI / 180 - Math.PI * 0.01;
-	  //var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
-	 // var rad = 600 + height;
+	  var phi = PI_HALF - lat * Math.PI / 180 - Math.PI * 0.01;
+	  var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
+	  var rad = 600 + height;
 
-	  vector3.x = (Vector3.x+1)/2*lon ;
-	  vector3.y = -(Vector3.y+1)/2*lat;
-	  
+	  vector3.x = Math.sin(phi) * Math.cos(theta) * rad;
+	  vector3.y = Math.cos(phi) * rad;
+	  vector3.z = Math.sin(phi) * Math.sin(theta) * rad;
 
 	  return vector3;
 	};
