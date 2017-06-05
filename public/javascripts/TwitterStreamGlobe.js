@@ -52,13 +52,16 @@
 	 *	Creates the Earth sphere
 	 */
 	function addEarth () {
+		import { Geometry } from '../core/Geometry';
+		import { BufferGeometry } from '../core/BufferGeometry';
+		import { Float32BufferAttribute } from '../core/BufferAttribute';
 
-	  var sphereGeometry = new THREE.PlaneGeometry(500, 500);
+		var sphereGeometry = new THREE.PlaneGeometry(50, 50);
 
-	  var shader = Shaders.earth;
-	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+		var shader = Shaders.earth;
+		var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/world.jpg');
+		uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/world.jpg');
 
 	  var material = new THREE.ShaderMaterial({
 	    uniforms: uniforms,
