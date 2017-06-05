@@ -4,7 +4,6 @@ var Shaders = {
       'texture': { type: 't', value: null }
     },
     vertexShader: [
-      'varying vec3 vNormal;',
       'varying vec2 vUv;',
       'void main() {',
         'gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );',
@@ -14,7 +13,6 @@ var Shaders = {
     ].join('\n'),
     fragmentShader: [
       'uniform sampler2D texture;',
-      'varying vec3 vNormal;',
       'varying vec2 vUv;',
       'void main() {',
         'vec3 diffuse = texture2D( texture, vUv ).xyz;',
