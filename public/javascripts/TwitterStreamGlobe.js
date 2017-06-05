@@ -167,7 +167,8 @@
 	function render () {
 
 		earthMesh.rotation.y =  0;
-		
+		earthMesh.rotation.x =  0;
+		earthMesh.rotation.z =  0;
 	  renderer.autoClear = false;
 	  renderer.clear();
 	  renderer.render( scene, camera );
