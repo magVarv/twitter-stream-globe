@@ -157,7 +157,7 @@
 	function animate () {
 	  requestAnimationFrame(animate);
     if (stats) stats.begin();
-    render();
+    //render();
     if (stats) stats.end();
 	}
 
