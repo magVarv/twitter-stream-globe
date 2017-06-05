@@ -158,7 +158,7 @@
 	 // requestAnimationFrame(animate);
     //if (stats) stats.begin();
    // render();
-    if (stats) stats.end();
+    //if (stats) stats.end();
 	//}
 
 	/**
