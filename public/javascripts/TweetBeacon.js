@@ -46,7 +46,7 @@ TweetBeacon.prototype.addBeam = function () {
   var lineGeo = new THREE.Geometry();
 
   lineGeo.vertices.push(new THREE.Vector2(0, 0));
-  lineGeo.vertices.push(new THREE.Vector2(0, 1));
+  lineGeo.vertices.push(new THREE.Vector2(0, 0));
 
   var lineMat = new THREE.LineBasicMaterial({
     color: this.color,
