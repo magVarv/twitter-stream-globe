@@ -32,10 +32,9 @@
 
 		document.getElementById('globe-holder').appendChild(renderer.domElement);
 
-		 var camera = new THREE.PerspectiveCamera(95, window.innerWidth / window.innerHeight, 1, 1000); 
-		camera.position.y = -250; 
-		camera.position.z = 400; 
-		camera.rotation.x = 45 * (Math.PI / 180); 
+		camera = new THREE.PerspectiveCamera(FOV, innerWidth / innerHeight, NEAR, FAR);
+		camera.position.set(POS_X, POS_Y, POS_Z);
+		camera.lookAt( new THREE.Vector3(0,0,0) );
 
 		scene = new THREE.Scene();
 		scene.add(camera);
@@ -53,42 +52,28 @@
 	 *	Creates the Earth sphere
 	 */
 	function addEarth () {
-   
 
-	  var plane = Mesh(new THREE.PlaneGeometry( 1500,1500),img);
-		plane.overdraw = true;
-		scene.add(plane);
+	  var PlaneGeometry = new THREE.PlaneGeometry(2000, 1800);
 
-	  var shader = Shaders.earth;
-	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
-	  
-	  
+	  //var shader = Shaders.earth;
+	  //var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+	  var img = new THREE.MeshBasicMaterial({ //CHANGED to MeshBasicMaterial
+        map:THREE.ImageUtils.loadTexture('/images/lala.jpg')
+    });
+    img.map.needsUpdate = true
 
-	    var img = new THREE.MeshBasicMaterial({ //CHANGED to MeshBasicMaterial
-        map:THREE.ImageUtils.loadTexture('images/.jpg')
-		});
-		img.map.needsUpdate = true; 
+	  //var material = new THREE.ShaderMaterial({
+	  //  uniforms: uniforms,
+	    //vertexShader: shader.vertexShader,
+	  // fragmentShader: shader.fragmentShader
+	 // });
 
-	  var material = new THREE.ShaderMaterial({
-	    uniforms: uniforms,
-	    vertexShader: shader.vertexShader,
-	    fragmentShader: shader.fragmentShader
-	  });
-
-	  earthMesh = new THREE.Mesh(sphereGeometry, material);
+	  earthMesh = new THREE.Mesh(PlaneGeometry, material);
 	  scene.add(earthMesh);
 
 	  // add an empty container for the beacons to be added to
 	  beaconHolder = new THREE.Object3D();
 	  earthMesh.add(beaconHolder);
-	  
-	  var three = {
-        renderer: renderer,
-        camera: camera,
-        scene: scene,
-        plane: plane
-    };
-    renderer.render(scene,camera);
 	}
 
 	var stats;
@@ -116,16 +101,16 @@
 
 	  var vector3 = new THREE.Vector3(0, 0, 0);
 
-	  lon = lon ;
-	  lat = lat ;
+	  lon = lon + 10;
+	  lat = lat - 2;
 
 	  var phi = PI_HALF - lat * Math.PI / 180 - Math.PI * 0.01;
 	  var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
 	  var rad = 600 + height;
 
-	  vector3.x = lat;
-	  vector3.y = lon;
-	  vector3.z = 0;
+	  vector3.x = Math.sin(phi) * Math.cos(theta) * rad;
+	  vector3.y = Math.cos(phi) * rad;
+	  vector3.z = Math.sin(phi) * Math.sin(theta) * rad;
 
 	  return vector3;
 	};
@@ -157,7 +142,7 @@
 		var beacon = new TweetBeacon(tweet);
 
 	  beacon.position.x = position.x;
-	  //beacon.position.y = position.y;
+	  beacon.position.y = position.y;
 	  beacon.position.z = position.z;
 	  beacon.lookAt(earthMesh.position);
 		beaconHolder.add(beacon);
