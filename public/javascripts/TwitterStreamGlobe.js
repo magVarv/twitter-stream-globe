@@ -32,9 +32,10 @@
 
 		document.getElementById('globe-holder').appendChild(renderer.domElement);
 
-		camera = new THREE.PerspectiveCamera(FOV, innerWidth / innerHeight, NEAR, FAR);
-		camera.position.set(POS_X, POS_Y, POS_Z);
-		camera.lookAt( new THREE.Vector3(0,0,0) );
+		 var camera = new THREE.PerspectiveCamera(95, window.innerWidth / window.innerHeight, 1, 1000); 
+		camera.position.y = -250; 
+		camera.position.z = 400; 
+		camera.rotation.x = 45 * (Math.PI / 180); 
 
 		scene = new THREE.Scene();
 		scene.add(camera);
@@ -52,13 +53,21 @@
 	 *	Creates the Earth sphere
 	 */
 	function addEarth () {
+   
 
-	  var sphereGeometry = new THREE.PlaneGeometry( 1500,0 , 1500);
+	  var plane = Mesh(new THREE.PlaneGeometry( 1500,1500),img);
+		plane.overdraw = true;
+		scene.add(plane);
 
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+	  
+	  
 
-	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/lala.jpg');
+	    var img = new THREE.MeshBasicMaterial({ //CHANGED to MeshBasicMaterial
+        map:THREE.ImageUtils.loadTexture('images/.jpg')
+		});
+		img.map.needsUpdate = true; 
 
 	  var material = new THREE.ShaderMaterial({
 	    uniforms: uniforms,
@@ -72,6 +81,14 @@
 	  // add an empty container for the beacons to be added to
 	  beaconHolder = new THREE.Object3D();
 	  earthMesh.add(beaconHolder);
+	  
+	  var three = {
+        renderer: renderer,
+        camera: camera,
+        scene: scene,
+        plane: plane
+    };
+    renderer.render(scene,camera);
 	}
 
 	var stats;
