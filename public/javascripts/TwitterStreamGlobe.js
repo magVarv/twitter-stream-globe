@@ -138,22 +138,11 @@
 	function addBeacon (position, tweet) {
 		
 		var beacon = new TweetBeacon(tweet);
-		var vector = new THREE.Vector3();
-		var canvas = renderer.domElement;
+		
 
-		vector.set( 1, 2, 3 );
-
-// map to normalized device coordinate (NDC) space
-		vector.project( camera );
-
-// map to 2D screen space
-		beacon.position.x = Math.round( (   vector.x + 1 ) * canvas.width  / 2 );
-		beacon.position.y = Math.round( ( - vector.y + 1 ) * canvas.height / 2 );
-		beacon.position.z = 0;
-
-	  //beacon.position.x = position.x;
-	  //beacon.position.y = position.y;
-	  //beacon.position.z = position.z;
+	  beacon.position.x = position.x;
+	  beacon.position.y = position.y;
+	  beacon.position.z = position.z;
 	  beacon.lookAt(earthMesh.position);
 		beaconHolder.add(beacon);
 
