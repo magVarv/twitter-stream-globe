@@ -53,12 +53,12 @@
 	 */
 	function addEarth () {
 
-	  var sphereGeometry = new THREE.sphereGeometry(600, 50, 50);
+	  var sphereGeometry = new THREE.PlaneGeometry(2000, 1800);
 
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/world.jpg');
+	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/lala.jpg');
 
 	  var material = new THREE.ShaderMaterial({
 	    uniforms: uniforms,
@@ -138,7 +138,6 @@
 	function addBeacon (position, tweet) {
 		
 		var beacon = new TweetBeacon(tweet);
-		
 
 	  beacon.position.x = position.x;
 	  beacon.position.y = position.y;
