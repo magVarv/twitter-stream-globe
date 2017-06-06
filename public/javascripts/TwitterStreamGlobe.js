@@ -99,8 +99,8 @@
 
 	  var vector3 = new THREE.Vector3(0, 0, 0);
 
-	  lon = lon + 10;
-	  lat = lat - 2;
+	  lon = lon ;
+	  lat = lat ;
 
 	  var phi = PI_HALF - lat * Math.PI / 180 - Math.PI * 0.01;
 	  var theta = 2 * Math.PI - lon * Math.PI / 180 + Math.PI * 0.06;
