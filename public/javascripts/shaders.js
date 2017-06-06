@@ -7,7 +7,7 @@ var Shaders = {
       'varying vec3 vNormal;',
       'varying vec2 vUv;',
       'void main() {',
-        'gl_Position = projectionMatrix * modelViewMatrix * vec3( position, 1.0 );',
+        'gl_Position = projectionMatrix * modelViewMatrix * vec2( position, 1.0 );',
         'vNormal = normalize( normalMatrix * normal );',
         'vUv = uv;',
       '}'
