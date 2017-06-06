@@ -107,8 +107,8 @@
 	  var rad = 600 + height;
 
 	  vector3.x = lat;
-	  //vector3.y = lon;
-	  vector3.z = lon;
+	  vector3.y = lon;
+	  vector3.z = 0;
 
 	  return vector3;
 	};
