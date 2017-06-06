@@ -53,20 +53,22 @@
 	 */
 	function addEarth () {
 
-	  var PlaneGeometry = new THREE.PlaneGeometry(2000, 1800);
+	  
 
-	  //var shader = Shaders.earth;
-	  //var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
+	  var shader = Shaders.earth;
+	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 	  var img = new THREE.MeshBasicMaterial({ //CHANGED to MeshBasicMaterial
         map:THREE.ImageUtils.loadTexture('/images/lala.jpg')
     });
     img.map.needsUpdate = true
+	
+	var PlaneGeometry =  new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img);
 
-	  //var material = new THREE.ShaderMaterial({
-	  //  uniforms: uniforms,
-	    //vertexShader: shader.vertexShader,
-	  // fragmentShader: shader.fragmentShader
-	 // });
+	var material = new THREE.ShaderMaterial({
+		uniforms: uniforms,
+		vertexShader: shader.vertexShader,
+		fragmentShader: shader.fragmentShader
+	  });
 
 	  earthMesh = new THREE.Mesh(PlaneGeometry, material);
 	  scene.add(earthMesh);
