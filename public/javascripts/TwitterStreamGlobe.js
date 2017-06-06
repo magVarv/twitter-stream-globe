@@ -124,10 +124,10 @@
 			lon: tweet.coordinates.coordinates[0]
 		};
 		
-		var position = latLonToVector3(latlong.lat, latlong.lon);
-		if( 30<=latlong.lat && latlong.lat<=70 && -10<=latlong.lon && latlong.lon<=30 ){
-			addBeacon(position, tweet);
-			}
+		//var position = latLonToVector3(latlong.lat, latlong.lon);
+		//if( 30<=latlong.lat && latlong.lat<=70 && -10<=latlong.lon && latlong.lon<=30 ){
+		//	addBeacon(position, tweet);
+		//	}
 		
 	}
 	
@@ -141,7 +141,7 @@
 
 	  beacon.position.x = position.x;
 	  beacon.position.y = position.y;
-	  beacon.position.z = position.z;
+	  //beacon.position.z = position.z;
 	  beacon.lookAt(earthMesh.position);
 		beaconHolder.add(beacon);
 
