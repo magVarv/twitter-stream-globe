@@ -53,24 +53,20 @@
 	 */
 	function addEarth () {
 
-	  
+	  var sphereGeometry = new THREE.PlaneGeometry(3600, 1800);
 
 	  var shader = Shaders.earth;
 	  var uniforms = THREE.UniformsUtils.clone(shader.uniforms);
-	  var img = new THREE.MeshBasicMaterial({ //CHANGED to MeshBasicMaterial
-        map:THREE.ImageUtils.loadTexture('/images/lala.jpg')
-    });
-    img.map.needsUpdate = true
-	
-	var PlaneGeometry =  new THREE.Mesh(new THREE.PlaneGeometry(200, 200),img);
 
-	var material = new THREE.ShaderMaterial({
-		uniforms: uniforms,
-		vertexShader: shader.vertexShader,
-		fragmentShader: shader.fragmentShader
+	  uniforms['texture'].value = THREE.ImageUtils.loadTexture('/images/lala.jpg');
+
+	  var material = new THREE.ShaderMaterial({
+	    uniforms: uniforms,
+	    vertexShader: shader.vertexShader,
+	    fragmentShader: shader.fragmentShader
 	  });
 
-	  earthMesh = new THREE.Mesh(PlaneGeometry, material);
+	  earthMesh = new THREE.Mesh(sphereGeometry, material);
 	  scene.add(earthMesh);
 
 	  // add an empty container for the beacons to be added to
