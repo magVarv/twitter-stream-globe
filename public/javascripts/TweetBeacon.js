@@ -7,12 +7,12 @@ TweetBeacon = function(tweet) {
   this.tweet = tweet;
 
   // Call the constructor
-  THREE.Object3D.call(this);
+ // THREE.Object3D.call(this);
 
   // An empty container oriented to make it easier to work with child objects
-  this.container = new THREE.Object3D();
-  this.container.rotation.y = THREE.Math.degToRad(180);
-  this.add(this.container);
+ //this.container = new THREE.Object3D();
+ // this.container.rotation.y = THREE.Math.degToRad(180);
+ // this.add(this.container);
 
   // Set base color depending on sentiment score
   this.color = 0xFFFFFF;
@@ -34,9 +34,9 @@ TweetBeacon = function(tweet) {
   this.addShockwave();
 };
 
-TweetBeacon.prototype = new THREE.Object3D();
+//TweetBeacon.prototype = new THREE.Object3D();
 TweetBeacon.prototype.constructor = TweetBeacon;
-TweetBeacon.prototype.supr = THREE.Object3D.prototype;
+//TweetBeacon.prototype.supr = THREE.Object3D.prototype;
 
 /**
  * The line that shoots out from the surface of the Earth
@@ -45,8 +45,8 @@ TweetBeacon.prototype.addBeam = function () {
 
   var lineGeo = new THREE.Geometry();
 
-  lineGeo.vertices.push(new THREE.Vector3(0, 0, 0));
-  lineGeo.vertices.push(new THREE.Vector3(0, 0, 1));
+  lineGeo.vertices.push(new THREE.Vector2(0, 0));
+  lineGeo.vertices.push(new THREE.Vector2(0, 1));
 
   var lineMat = new THREE.LineBasicMaterial({
     color: this.color,
